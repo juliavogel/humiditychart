@@ -3,6 +3,7 @@
 class MySQL
 {
     private $_mysqli;
+    private $_result;
 
     public static function Create()
     {
@@ -23,7 +24,20 @@ class MySQL
 
     public function query( $sql )
     {
-        $this->_mysqli->query( $sql );
+        $this->_result = $this->_mysqli->query( $sql );
+    }
+
+    public function fetchObjects()
+    {
+        $array = array();
+
+        while( $obj = $this->_result->fetch_object() ){
+            array_push( $array, $obj );
+        }
+
+        $this->_result->close();
+
+        return $array;
     }
 }
 ?>
