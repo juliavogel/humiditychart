@@ -9,4 +9,4 @@
 require 'job.php';
 
 $job = new Job( 'basement' );
-$job->run( 'sensor.data' );
+$job->run( '/tmp/sensor.data' );
