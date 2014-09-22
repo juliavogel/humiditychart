@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>Line Chart</title>
+    <script src="./js/Chart.js"></script>
+    <script src="./js/legend.js"></script>
+    <script src="./data.php"></script>
+</head>
+<body>
+<div style="width:99%; height: 99%;">
+    <div>
+        <canvas id="canvas" ></canvas>
+        <div id="legend"></div>
+    </div>
+</div>
+
+<script>
+    window.onload = function(){
+
+        var ctx = document.getElementById("canvas").getContext("2d");
+        window.linechart = new Chart(ctx).Line(lineChartData, {
+            responsive: true,
+       /*     scaleOverride: true,
+            scaleSteps: 10,
+            scaleStepWidth  : 10,
+            scaleStartValue   : 0*/
+        });
+
+    }
+</script>
+</body>
+</html>
