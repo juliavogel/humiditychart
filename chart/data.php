@@ -2,7 +2,7 @@
 require dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'mysql.php';
 $mysql = MySQL::Create();
 
-$sql = "SELECT DATE_FORMAT( ts, '%H:%i') as ts, temperature, humidity FROM sensor_data ORDER BY ts ASC";
+$sql = "SELECT DATE_FORMAT( ts, '%H:%i') as ts, temperature, humidity FROM sensor_data WHERE ts = CURRENT_DATE() ORDER BY ts ASC";
 $mysql->query($sql);
 $list = $mysql->fetchObjects();
 
